@@ -1,0 +1,27 @@
+name: TAIH_ExpedienteClinico
+
+on:
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  call_env:
+    uses: ./.github/workflows/actionsvariables.yml
+
+  build:
+    needs: call_env
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restaurar dependencias
+        run: dotnet restore ./TAIH_ExpedienteClinico.slnx
+
+      - name: Compilar solucion
+        run: dotnet build ./TAIH_ExpedienteClinico.slnx --no-restore --configuration Release
