@@ -1,0 +1,6 @@
+@TAIH_PisoHospitalario_HostAddress = http://localhost:5270
+
+GET {{TAIH_PisoHospitalario_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
