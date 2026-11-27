@@ -1,10 +1,10 @@
-name: TAIH_PisoHospitalario_variables
+name: TAIH_ExpedienteClinico_variables
 
 on:
   workflow_call:
 
 env:
-  App_name: 'TAIH_PisoHospitalario'
+  App_name: 'TAIH_ExpedienteClinico'
   Dotnet_Version: '10'
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
       - name: Reemplazar appsettings
         shell: pwsh
         run: |
-          $path = "$env:GITHUB_WORKSPACE\TAIH_PisoHospitalario\appsettings.json"
+          $path = "$env:GITHUB_WORKSPACE\TAIH_ExpedienteClinico\appsettings.json"
 
           $json = Get-Content $path -Raw | ConvertFrom-Json
 
